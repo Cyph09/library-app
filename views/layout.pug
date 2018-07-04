@@ -1,0 +1,67 @@
+doctype
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    meta(http-equiv="X-UA-Compatible", content="ie=edge")
+    title Local libray
+    link(rel="stylesheet", href="https://fonts.googleapis.com/icon?family=Material+Icons")
+    link(rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css")
+  body
+    //- sidenav
+    ul#slide-out.sidenav
+      li
+        .user-view
+          .background
+            img(src="images/coffee.jpg", alt="background image ")
+          a(href="#user")
+            img.circle(src="images/user.png", alt="user image")
+          a(href="#name")
+            span.white-text.name Sabra Jabir
+          a(href="#email")
+            span.white-text.name sabrajabir@gmail.com
+      li
+        a.waves-effect(href="/catalog")
+          i.material-icons cloud
+          | Home
+      li
+        a(href="/catalog/books")
+          i.material-icons cloud
+          | All books   
+      li
+        a.waves-effect(href="/catalog/authors")
+          i.material-icons cloud
+          | All Authors
+      li
+        a(href="/catalog/genres")
+          i.material-icons cloud
+          | All genres   
+      li
+        a(href="/catalog/bookinstances")
+          i.material-icons cloud
+          | All book instances
+      li
+        a.waves-effect(href="/catalog/author/create")
+          i.material-icons cloud
+          | Add new Author
+      li
+        a(href="/catalog/genre/create")
+          i.material-icons cloud
+          | Add new genre   
+      li
+        a.waves-effect(href="/catalog/book/create")
+          i.material-icons cloud
+          | Add new book
+      li
+        a(href="/catalog/bookinstance/create")
+          i.material-icons cloud
+          | Add new book instance   
+    a.waves-effect(href="#" data-target="slide-out" class="sidenav-trigger")
+      i.material-icons menu
+    block content
+
+    script(src="/javascript/libappjs.js")
+    script(src="https://code.jquery.com/jquery-3.3.1.min.js"
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous")
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js")
