@@ -3,8 +3,25 @@ extends layout
 block content
   .container
     h1 #{title}
-    p Welcome to Local library App!
-    ul.collection
-      each val in ['Javascript Design Patterns', 'Java How to Program', 'HTML Head first']
-        li.collection-item.highlight= val
-    
+    p Welcome to #[em Local library] Website!
+
+    if error
+      p Unable to load content.
+    else
+      h4 The Library has the following record counts:
+      .collection
+        a.collection-item(href="#")
+          span.badge #{data.book_count}
+          | Books
+        a.collection-item(href="#")
+          span.badge #{data.book_instance_count}
+          | Copies
+        a.collection-item(href="#")
+          span.badge #{data.book_instance_available_count}
+          | Copies Available
+        a.collection-item(href="#")
+          span.badge #{data.author_count}
+          | Authors
+        a.collection-item(href="#")
+          span.badge #{data.genre_count}
+          | Genres
