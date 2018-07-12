@@ -1,0 +1,27 @@
+extends Layout
+
+block content
+  .container
+    h2 !{title}
+
+    h4 Copies of each book available.
+    ul.collection
+    each val in bookinstance_list
+      if val
+      li.collection-item
+         div 
+            | #{val.book.title} :  #{val.imprint} -
+            a.secondary-content(href="book.url")
+              i.material-icons send
+            if val.status=='Available'
+              span.text-success #{val.status}
+            else if val.status=='Maintenance'
+              span.text-danger #{val.status}
+            else if val.status == 'Loaned'
+              span.text-warning #{val.status} 
+                   val.status!='Available'
+              span  (Due: #{val.due_back_formatted} )
+    else 
+      li.collection-item No book
+    
+

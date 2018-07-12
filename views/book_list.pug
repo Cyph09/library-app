@@ -5,13 +5,16 @@ block content
     h1 #{title}
     
     if error
-      p There are no books.
+      p There is problem loading books.
     else
       h4 The Library has the following books
       ul.collection
         each book in book_list
+          if book
           li.collection-item
             div 
               | #{book.title}( #{book.author.name})
               a.secondary-content(href="book.url")
                 i.material-icons send
+        else
+          li.collection-item No books available.
