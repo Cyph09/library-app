@@ -1,0 +1,15 @@
+extends Layout
+
+block content
+ h1 #{title}
+
+ ul.collection
+  each author in author_list
+    li.collection-item
+      div
+        | #{author.name} (#{author.dob} - #{author.dod})
+        a.secondary-content(href="author.url") 
+          i.material-icons send
+  else
+    li.collection-item There are authors.
+

@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const moment   = require('moment');
 
 const Schema = mongoose.Schema;
 
@@ -31,5 +32,18 @@ AuthorSchema
   return '/catalog/author/' + this._id;
 });
 
+// Virtual for author's date of birth
+AuthorSchema
+.virtual('dob')
+.get(() => {
+  return moment(this.date_of_birth).format('MMMM Do, YYYY');
+});
+
+// Virtual for author's date of death
+AuthorSchema
+.virtual('dod')
+.get(() => {
+  return moment(this.date_of_death).format('MMMM Do, YYYY');
+});
 // Export model
 module.exports = mongoose.model('Author', AuthorSchema);

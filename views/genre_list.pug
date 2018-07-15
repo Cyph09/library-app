@@ -1,0 +1,13 @@
+extends layout
+
+block content
+
+  h1 #{title}
+
+  ul.collection
+    each genre in genre_list
+      li.collection-item
+        div
+        | #{genre.name}
+        a.secondary-content(href="genre.url")
+          i.material-icons send
