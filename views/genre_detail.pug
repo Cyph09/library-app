@@ -1,0 +1,21 @@
+extends layout
+
+block content
+  h2 #{title}
+
+  h3 Genre: #{genre.name}
+
+    h4 Books
+
+    ul.collection.with-header
+      each book in genre_books
+        li.collection-header
+          h5
+            a(href=`${book.url}`) #{book.title}
+          p #{book.summary}
+
+    //- else 
+    //-   p This genre has no books - Not working?
+      
+  a.waves-effect.waves-teal.btn(href="/catalog/genres") Back to Genres 
+    i.material-icons.left chevron_left

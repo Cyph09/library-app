@@ -13,9 +13,9 @@ html(lang="en")
       li
         .user-view
           .background
-            img(src="images/coffee.jpg", alt="background image ")
+            img(src="/public/images/coffee.jpg", alt="background image ")
           a(href="#user")
-            img.circle(src="images/user.png", alt="user image")
+            img.circle(src="/public/images/user.png", alt="user image")
           a(href="#name")
             span.white-text.name Sabra Jabir
           a(href="#email")
@@ -40,6 +40,8 @@ html(lang="en")
         a(href="/catalog/bookinstances")
           i.material-icons cloud
           | All book instances
+      li
+        .divider
       li
         a.waves-effect(href="/catalog/author/create")
           i.material-icons person_add

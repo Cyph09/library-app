@@ -37,13 +37,13 @@ AuthorSchema
 .virtual('dob')
 .get(() => {
   return moment(this.date_of_birth).format('MMMM Do, YYYY');
-});
+}); // Needs fixing
 
 // Virtual for author's date of death
 AuthorSchema
 .virtual('dod')
 .get(() => {
   return moment(this.date_of_death).format('MMMM Do, YYYY');
-});
+}); // Needs fixing
 // Export model
 module.exports = mongoose.model('Author', AuthorSchema);
