@@ -1,0 +1,59 @@
+extends layout
+
+block content
+ .row 
+    .col.s12.m12
+      .card.grey.lighten-3
+        .card-content
+          span.card-title Title: #{book.title}
+          p #[strong Author:] 
+            a(href=book.author.url) #{book.author.name}
+          p #[strong Summary:] #{book.summary}
+          p #[strong ISBN:] #{book.isbn}
+          p #[strong Genre:]&nbsp;
+            each genre, index in book.genre
+              a(href=genre.url) #{genre.name}
+              if index < book.genre.length -1
+                |,
+ .row 
+    .col.s12.m12
+      .card.grey.lighten-3
+        .card-content
+          span.card-title Book Copies
+          each copy in book_instances
+            if copy.status == 'Available'
+             p.green-text #{copy.status}
+            else if copy.status == 'Maintanance'
+              p.red-text.darken-2 #{copy.status}
+            else
+              p.blue-text #{copy.status}
+            
+            p #[strong Imprint: ] #{copy.imprint}
+            if copy.status != 'Available'
+              p #[strong Due back:] #{copy.due_back}
+            p #[strong Id:]&nbsp;
+              a(href=copy.url) #{copy._id}
+
+          else
+            p There are copies of this book in the library.
+          //- h6 #[strong Copies]
+
+          //- each copy in book_instances
+          //-   if copy.status == 'Available'
+          //-    p.green-text #{copy.status}
+          //-   else if copy.status == 'Maintanance'
+          //-     p.red-text.darken-2 #{copy.status}
+          //-   else
+          //-     p.blue-text #{copy.status}
+            
+          //-   p #[strong Imprint: ] #{copy.imprint}
+          //-   if copy.status != 'Available'
+          //-     p #[strong Due back:] #{copy.due_back}
+          //-   p #[strong Id:]&nbsp;
+          //-     a(href=copy.url) #{copy._id}
+
+          //- else
+          //-   p There are copies of this book in the library.
+
+        
+                
