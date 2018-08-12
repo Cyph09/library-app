@@ -1,0 +1,20 @@
+extends layout
+block content
+    
+  h2 #{author.name} 
+  p #{author.date_of_birth} - #{author_date_of_birth}
+
+  h4 Books
+
+  ul.collection.with-header
+    each book in author_books
+      li.collection-header
+        h5
+          a(href=book.url) #{book.title}
+        p #{book.summary}
+    
+    else
+      p This author has no books.
+
+  a.waves-effect.waves-teal.btn(href="/catalog/authors") Back to Authors 
+    i.material-icons.left chevron_left
